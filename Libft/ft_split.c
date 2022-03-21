@@ -1,10 +1,9 @@
-
 #include "libft.h"
 
 int	get_word_num(char const *s, char c)
 {
 	int	num;
-	
+
 	num = 0;
 	while (*s)
 	{
@@ -20,7 +19,7 @@ int	get_word_num(char const *s, char c)
 
 int	get_word_len(char const *s, char c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (*s && *s != c)
@@ -31,10 +30,12 @@ int	get_word_len(char const *s, char c)
 	return (len);
 }
 
-void	free_all(char **result, int idx)
+int	null_guard(char **result, int idx)
 {
 	int	i;
 
+	if ((*result)[i])
+		return (1);
 	i = 0;
 	while (i < idx)
 	{
@@ -42,12 +43,12 @@ void	free_all(char **result, int idx)
 		i++;
 	}
 	free(result);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		word_num;
-	int		word_len;
 	int		i;
 	char	**result;
 
@@ -55,17 +56,14 @@ char	**ft_split(char const *s, char c)
 	result = malloc(sizeof(char *) * (word_num + 1));
 	if (!result)
 		return (0);
-	while (i < word_num)
+	i = -1;
+	while (++i < word_num)
 	{
-		while(*s && *s == c)
+		while (*s && *s == c)
 			s++;
-		word_len = get_word_len(s, c);
-		result[i] = malloc(sizeof(char) * (word_len + 1));
-		if (!(result[i]))
-		{
-			free_all(result, i);
+		result[i] = malloc(sizeof(char) * (get_word_len(s, c) + 1));
+		if (!null_guard(&result, i))
 			return (0);
-		}
 		while (*s && *s != c)
 		{
 			*(result[i]) = *s;

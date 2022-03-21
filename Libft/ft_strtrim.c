@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:37:07 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 14:55:02 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/21 17:16:31 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 
 	while (is_exist(*s1, set))
-        s1++;
+		s1++;
 	size = 0;
-	while(!is_exist(s1[size], set))
+	while (!is_exist(s1[size], set))
 		size++;
 	result = malloc(sizeof(char) * (size + 1));
 	if (!result)
