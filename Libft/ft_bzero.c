@@ -6,13 +6,13 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:16:29 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/07 14:32:06 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/21 16:13:18 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 

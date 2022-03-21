@@ -6,13 +6,13 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:32:39 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/15 17:35:10 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/21 16:13:49 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 

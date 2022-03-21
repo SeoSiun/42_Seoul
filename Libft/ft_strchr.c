@@ -6,16 +6,16 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:06:57 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/16 17:09:53 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/21 16:14:01 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
-		return (NULL);
+		return (0);
 	while (*s)
 	{
 		if (*s == c)
@@ -24,5 +24,5 @@ char	*strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return (s);
-	return (NULL);
+	return (0);
 }
