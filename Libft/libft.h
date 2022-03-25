@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:26:45 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:19:20 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/25 15:34:25 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {

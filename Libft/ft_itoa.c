@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/25 15:12:53 by siseo             #+#    #+#             */
+/*   Updated: 2022/03/25 17:36:34 by siseo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	get_size(long long num)
+static int	get_size(long long num)
 {
 	int	size;
 
@@ -33,13 +45,13 @@ char	*ft_itoa(int n)
 		return (0);
 	if (num < 0)
 	{
-		*result = '-';
+		result[0] = '-';
 		num *= -1;
 	}
 	result[size] = '\0';
-	while ((size == 0 && result[0] != '-') || size > 0)
+	while ((size == 1 && result[0] != '-') || size > 1)
 	{
-		result[--size] = num % 10;
+		result[--size] = (num % 10) + '0';
 		num /= 10;
 	}
 	return (result);

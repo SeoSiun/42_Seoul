@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:06:57 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:03:59 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/25 15:27:27 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == c)
-			return (s);
+			return ((char *)s);
 		s++;
 	}
 	if (c == '\0')
-		return (s);
+		return ((char *)s);
 	return (0);
 }

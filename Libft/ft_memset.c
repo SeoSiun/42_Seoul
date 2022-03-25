@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:11:16 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:03:41 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/25 15:41:32 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
-	if (!b)
-		return (0);
 	i = 0;
 	while (i < len)
 	{

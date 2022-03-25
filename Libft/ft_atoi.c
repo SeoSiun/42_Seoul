@@ -6,11 +6,11 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:50:36 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:02:17 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/25 21:37:02 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_space(int c)
+static int	is_space(int c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);

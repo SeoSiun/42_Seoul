@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/25 15:27:11 by siseo             #+#    #+#             */
+/*   Updated: 2022/03/25 18:06:04 by siseo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	get_word_num(char const *s, char c)
+static int	get_word_num(char const *s, char c)
 {
 	int	num;
 
@@ -17,7 +29,7 @@ int	get_word_num(char const *s, char c)
 	return (num);
 }
 
-int	get_word_len(char const *s, char c)
+static int	get_word_len(char const *s, char c)
 {
 	int	len;
 
@@ -30,11 +42,11 @@ int	get_word_len(char const *s, char c)
 	return (len);
 }
 
-int	null_guard(char **result, int idx)
+static int	null_guard(char **result, int idx)
 {
 	int	i;
 
-	if ((*result)[i])
+	if (result[idx])
 		return (1);
 	i = 0;
 	while (i < idx)
@@ -50,6 +62,7 @@ char	**ft_split(char const *s, char c)
 {
 	int		word_num;
 	int		i;
+	int		j;
 	char	**result;
 
 	word_num = get_word_num(s, c);
@@ -62,15 +75,12 @@ char	**ft_split(char const *s, char c)
 		while (*s && *s == c)
 			s++;
 		result[i] = malloc(sizeof(char) * (get_word_len(s, c) + 1));
-		if (!null_guard(&result, i))
+		if (!null_guard(result, i))
 			return (0);
+		j = 0;
 		while (*s && *s != c)
-		{
-			*(result[i]) = *s;
-			(result[i])++;
-			s++;
-		}
+			result[i][j++] = *(s++);
 	}
 	result[i] = 0;
-	return (0);
+	return (result);
 }

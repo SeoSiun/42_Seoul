@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:24:37 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:03:23 by siseo            ###   ########.fr       */
+/*   Updated: 2022/03/25 15:25:39 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (((const unsigned char *)s)[i] == (unsigned char)c)
-			return (&s[i]);
+			return (&(((void *)s)[i]));
 		i++;
 	}
 	return (NULL);
