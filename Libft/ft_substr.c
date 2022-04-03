@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:12:18 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 15:32:38 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 16:35:56 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	size = 0;
-	while (s[start + size] && size < len)
+	while (!(ft_strlen(s) < start) && s[start + size] && size < len)
 		size++;
 	result = malloc(sizeof(char) * (size + 1));
 	if (!result)

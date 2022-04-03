@@ -6,12 +6,11 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:24:58 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 21:42:43 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 15:41:53 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*result;

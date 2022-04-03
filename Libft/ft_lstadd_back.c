@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:13:22 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 21:09:03 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 15:49:48 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!(*lst))
+	t_list	*tmp;
+
+	tmp = *lst;
+	if (!tmp)
 		*lst = new;
 	else
 	{
-		while ((*lst)->next)
-			lst++;
-		(*lst)->next = new;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
 }

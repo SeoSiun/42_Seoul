@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:16:29 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 14:52:28 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 16:43:24 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
-	if (!s)
-		return ;
 	i = 0;
 	while (i < n)
 	{
