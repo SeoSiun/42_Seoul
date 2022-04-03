@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:28:56 by siseo             #+#    #+#             */
-/*   Updated: 2022/04/03 16:55:14 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 17:10:08 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return (_s1[i] - _s2[i]);
 		i++;
 	}
+	return (0);
 }

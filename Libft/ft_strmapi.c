@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:29:33 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 15:29:34 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 17:43:52 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*result;
 	int		i;
 
+	if (!f)
+		return (0);
 	result = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!result)
 		return (0);

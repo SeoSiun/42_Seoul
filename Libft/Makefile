@@ -6,7 +6,7 @@
 #    By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 14:50:10 by siseo             #+#    #+#              #
-#    Updated: 2022/04/03 15:10:48 by siseo            ###   ########.fr        #
+#    Updated: 2022/04/03 17:39:29 by siseo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
+	
 $(OBJS) : $(SRCS)
 	$(CC) $(CFLAGS) -c $(SRCS)
 
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

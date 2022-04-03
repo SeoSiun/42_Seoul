@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:27:11 by siseo             #+#    #+#             */
-/*   Updated: 2022/04/03 16:40:41 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/03 17:48:14 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	char	**result;
 
+	if (!s)
+		return (0);
 	word_num = get_word_num(s, c);
 	result = malloc(sizeof(char *) * (word_num + 1));
 	if (!result)
