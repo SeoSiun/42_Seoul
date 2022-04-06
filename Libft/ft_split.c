@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:27:11 by siseo             #+#    #+#             */
-/*   Updated: 2022/04/03 17:48:14 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/06 16:44:46 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ static int	get_word_len(char const *s, char c)
 	return (len);
 }
 
-static int	null_guard(char **result, int idx)
+static int	alloc_result_i(char **result, int idx, int size)
 {
 	int	i;
 
+	result[idx] = malloc(sizeof(char) * (size + 1));
 	if (result[idx])
 		return (1);
 	i = 0;
@@ -76,12 +77,12 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s && *s == c)
 			s++;
-		result[i] = malloc(sizeof(char) * (get_word_len(s, c) + 1));
-		if (!null_guard(result, i))
+		if (!alloc_result_i(result, i, get_word_len(s, c)))
 			return (0);
 		j = 0;
 		while (*s && *s != c)
 			result[i][j++] = *(s++);
+		result[i][j] = '\0';
 	}
 	result[i] = 0;
 	return (result);

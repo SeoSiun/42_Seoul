@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:05:41 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/21 17:04:01 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/06 17:32:39 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*s2;
 
-	if (!s1)
-		return (0);
 	s2 = malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (!s2)
 		return (0);

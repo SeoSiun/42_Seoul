@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:50:36 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 21:39:42 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/06 18:48:46 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,21 @@ static int	is_space(int c)
 	return (0);
 }
 
+static int	check_range(unsigned long long num, int sign)
+{
+	if (num > 9223372036854775807 && sign == 1)
+		return (-1);
+	else if (num >= 9223372036854775808u && sign == -1)
+		return (0);
+	return (1);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	num;
+	int					i;
+	int					sign;
+	int					check;
+	unsigned long long	num;
 
 	i = 0;
 	sign = 1;
@@ -36,9 +46,11 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num *= 10;
-		num += str[i] - '0';
+		num = num * 10 + str[i] - '0';
 		i++;
+		check = check_range(num, sign);
+		if (check != 1)
+			return (check);
 	}
 	return (sign * num);
 }

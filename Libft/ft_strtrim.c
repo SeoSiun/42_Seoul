@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:37:07 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 20:45:22 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/06 19:01:10 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	char	*result;
 
+	if (!s1)
+		return (0);
 	while (s1 && is_exist(*s1, set))
 		s1++;
 	j = ft_strlen(s1);

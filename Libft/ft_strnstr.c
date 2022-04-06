@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:42:57 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 17:27:48 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/06 18:50:19 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!haystack && !len && needle)
+		return (0);
 	if (needle[i] == '\0')
 		return ((char *)haystack);
-	while (haystack[i] != '\0' && i + ft_strlen(needle) < len)
+	while (haystack[i] != '\0' && i + ft_strlen(needle) <= len)
 	{
 		j = 0;
 		while (haystack[i + j] == needle[j] && haystack[i + j] != '\0')
