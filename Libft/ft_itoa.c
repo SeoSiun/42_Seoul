@@ -6,40 +6,35 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:12:53 by siseo             #+#    #+#             */
-/*   Updated: 2022/03/25 17:36:34 by siseo            ###   ########.fr       */
+/*   Updated: 2022/04/23 15:15:36 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_size(long long num)
+static size_t	get_size(int n)
 {
 	int	size;
 
-	if (num == 0)
-		return (1);
 	size = 0;
-	if (num < 0)
+	if (n <= 0)
+		size++;
+	while (n)
 	{
 		size++;
-		num *= -1;
-	}
-	while (num)
-	{
-		size++;
-		num /= 10;
+		n /= 10;
 	}
 	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	long long	num;
-	int			size;
-	char		*result;
+	int		size;
+	char	*result;
+	long	num;
 
+	size = get_size(n);
 	num = n;
-	size = get_size(num);
 	result = malloc(sizeof(char) * (size + 1));
 	if (!result)
 		return (0);
@@ -48,10 +43,12 @@ char	*ft_itoa(int n)
 		result[0] = '-';
 		num *= -1;
 	}
-	result[size] = '\0';
-	while ((size == 1 && result[0] != '-') || size > 1)
+	if (num == 0)
+		result[0] = '0';
+	result[size--] = '\0';
+	while (num)
 	{
-		result[--size] = (num % 10) + '0';
+		result[size--] = num % 10 + '0';
 		num /= 10;
 	}
 	return (result);
