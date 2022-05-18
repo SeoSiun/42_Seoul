@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:19 by siseo             #+#    #+#             */
-/*   Updated: 2022/05/15 17:03:36 by siseo            ###   ########.fr       */
+/*   Updated: 2022/05/18 17:00:43 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,52 +66,50 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (result);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlcpy(char **dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
 
-	if (!dst && !src)
-		return (0);
-	if ((size_t)(dst - src) >= len)
-	{	
+	if (dstsize == 1)
+	{
+		free(*dst);
+		*dst = 0;
+	}
+	else if (dstsize != 0)
+	{
 		i = 0;
-		while (i < (int)len)
+		while (i < dstsize - 1 && src[i] != '\0')
 		{
-			((unsigned char *)(dst))[i] = ((const unsigned char *)(src))[i];
+			(*dst)[i] = src[i];
 			i++;
 		}
+		(*dst)[i] = '\0';
 	}
-	else
-	{
-		i = (int)(len - 1);
-		while (i >= 0)
-		{	
-			((unsigned char *)(dst))[i] = ((const unsigned char *)(src))[i];
-			i--;
-		}
-	}
-	return (dst);
+	return (ft_strlen(src));
 }
 
-int	check_new_line(char *back_up, char *line)
+int	check_new_line(char **back_up, char **line, int size)
 {
 	int		i;
 
-	if (line)
-		free(line);
-	line = malloc(sizeof(char) * (ft_strlen(back_up) + 1));
-	i = 0;
-	while (back_up[i] != '\0' && back_up[i] != '\n')
+	if (*line)
+		free(*line);
+	if (size == 0 && !*back_up)
+		return (0);
+	*line = malloc(sizeof(char) * (ft_strlen(*back_up) + 1));
+	i = -1;
+	while ((*back_up)[++i] != '\0' && (*back_up)[i - 1] != '\n')
+		(*line)[i] = (*back_up)[i];
+	(*line)[i] = '\0';
+	if (size == 0)
 	{
-		line[i] = back_up[i];
-		i++;
+		free(*back_up);
+		*back_up = 0;
 	}
-	line[i] = '\0';
-	if (back_up[i] == '\n')
+	else if ((*back_up)[i - 1] == '\n')
 	{
-		i++;
-		ft_memmove(back_up, &back_up[i], ft_strlen(&back_up[i]));
+		ft_strlcpy(back_up, &((*back_up)[i]), ft_strlen(&((*back_up)[i])) + 1);
 		return (1);
-	}	
+	}
 	return (0);
 }
