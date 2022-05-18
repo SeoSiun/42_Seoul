@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:13 by siseo             #+#    #+#             */
-/*   Updated: 2022/05/18 16:43:46 by siseo            ###   ########.fr       */
+/*   Updated: 2022/05/18 17:29:24 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,40 +40,42 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// void	test(int fd, char *filename) {
-// 	int		cnt;
-// 	char	*line;
+void	test(int fd, char *filename) {
+	int		cnt;
+	char	*line;
 
-// 	cnt = 0;
-// 	printf("%s start\n", filename);
-// 	while (1)
-// 	{
-// 		line = get_next_line(fd);
-// 		if (!line)
-// 			break ;
-// 		printf("%d: %s\n", cnt++, line);
-// 	}
-// 	printf("%s end\n", filename);
-// }
+	cnt = 0;
+	printf("%s start\n", filename);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		printf("%d: %s\n", cnt++, line);
+	}
+	printf("%s end\n", filename);
+}
 
-// int	main(void)
-// {
-// 	int		fd;
+int	main(void)
+{
+	int		fd;
 
-// 	fd = open("gnlTester/files/empty", O_RDWR);
-// 	test(fd, "empty");
-// 	fd = open("gnlTester/files/nl", O_RDWR);
-// 	test(fd, "nl");
-// 	fd = open("gnlTester/files/41_no_nl", O_RDWR);
-// 	test(fd, "41_no_nl");
-// 	fd = open("gnlTester/files/41_with_nl", O_RDWR);
-// 	test(fd, "41_with_nl");
-// 	fd = open("gnlTester/files/42_no_nl", O_RDWR);
-// 	test(fd, "42_no_nl");
-// 	fd = open("gnlTester/files/42_with_nl", O_RDWR);
-// 	test(fd, "42_with_nl");
-// fd = open("gnlTester/files/43_no_nl", O_RDWR);
-// 	test(fd, "43_no_nl");
-// 	fd = open("gnlTester/files/43_with_nl", O_RDWR);
-// 	test(fd, "43_with_nl");
-// }
+	// fd = open("gnlTester/files/empty", O_RDWR);
+	// test(fd, "empty");
+	// fd = open("gnlTester/files/nl", O_RDWR);
+	// test(fd, "nl");
+	// fd = open("gnlTester/files/41_no_nl", O_RDWR);
+	// test(fd, "41_no_nl");
+	// fd = open("gnlTester/files/41_with_nl", O_RDWR);
+	// test(fd, "41_with_nl");
+	// fd = open("gnlTester/files/42_no_nl", O_RDWR);
+	// test(fd, "42_no_nl");
+	// fd = open("gnlTester/files/42_with_nl", O_RDWR);
+	// test(fd, "42_with_nl");
+	// fd = open("gnlTester/files/43_no_nl", O_RDWR);
+	// test(fd, "43_no_nl");
+	// fd = open("gnlTester/files/43_with_nl", O_RDWR);
+	// test(fd, "43_with_nl");
+	fd = open("gnlTester/files/multiple_line_with_nl", O_RDWR);
+	test(fd, "multiple_line_with_nl");
+}

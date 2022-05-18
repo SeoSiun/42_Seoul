@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:19 by siseo             #+#    #+#             */
-/*   Updated: 2022/05/18 17:00:43 by siseo            ###   ########.fr       */
+/*   Updated: 2022/05/18 17:34:28 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,14 @@ int	check_new_line(char **back_up, char **line, int size)
 {
 	int		i;
 
+	printf("before backup: %s")
 	if (*line)
 		free(*line);
 	if (size == 0 && !*back_up)
+	{
+		line = 0;
 		return (0);
+	}
 	*line = malloc(sizeof(char) * (ft_strlen(*back_up) + 1));
 	i = -1;
 	while ((*back_up)[++i] != '\0' && (*back_up)[i - 1] != '\n')
