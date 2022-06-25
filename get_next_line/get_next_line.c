@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:13 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 00:09:52 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 00:31:24 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 char	*get_next_line(int fd)
 {
-	char		buf[BUFFER_SIZE + 1];
-	static char	*backup[OPEN_MAX];
-	char		*line;
-	int			size;
-	size_t		b_len;
+	char			buf[BUFFER_SIZE + 1];
+	static t_backup	backup[OPEN_MAX];
+	char			*line;
+	int				size;
 
 	line = 0;
 	while (1)
@@ -28,24 +27,14 @@ char	*get_next_line(int fd)
 			return (free_backup(&backup[fd]));
 		if (size == 0)
 		{
-			check_new_line(&backup[fd], &line, size, 0);
+			check_new_line(&backup[fd], &line, size);
 			return (line);
 		}
 		buf[size] = '\0';
-		backup[fd] = ft_strjoin(backup[fd], buf, size, &b_len);
-		if (!backup[fd])
+		backup[fd].s = ft_strjoin(&backup[fd], buf, size);
+		if (!backup[fd].s)
 			return (0);
-		if (check_new_line(&backup[fd], &line, size, b_len))
+		if (check_new_line(&backup[fd], &line, size))
 			return (line);
 	}
-}
-
-char	*free_backup(char **backup)
-{
-	if (*backup)
-	{
-		free(*backup);
-		*backup = 0;
-	}
-	return (0);
 }
