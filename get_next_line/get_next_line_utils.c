@@ -6,15 +6,15 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:19 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 00:46:13 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 03:09:21 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*free_backup(t_backup *backup)
+char	*free_backup(t_backup *backup, int fd)
 {
-	if (backup->s)
+	if ((fd >= 0 && fd < OPEN_MAX) && backup->s)
 	{
 		free(backup->s);
 		backup->s = 0;
@@ -67,7 +67,7 @@ size_t	ft_strlcpy(t_backup *backup, const char *src, size_t dstsize)
 
 	if (*src == '\0')
 	{
-		free_backup(backup);
+		free_backup(backup, 0);
 		return (0);
 	}
 	else if (dstsize != 0)
@@ -103,6 +103,6 @@ int	check_new_line(t_backup *backup, char **line, int size)
 		return (1);
 	}
 	else if (size == 0 && backup->s[i] == '\0')
-		free_backup(backup);
+		free_backup(backup, 0);
 	return (0);
 }

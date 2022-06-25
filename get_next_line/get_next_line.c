@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:13 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 00:31:24 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 03:06:58 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	{
 		size = read(fd, buf, BUFFER_SIZE);
 		if (size == -1)
-			return (free_backup(&backup[fd]));
+			return (free_backup(&backup[fd], fd));
 		if (size == 0)
 		{
 			check_new_line(&backup[fd], &line, size);
