@@ -6,11 +6,22 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:13 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 03:06:58 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 17:08:01 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*free_backup(t_backup *backup, int fd)
+{
+	if ((fd >= 0 && fd < OPEN_MAX) && backup->s)
+	{
+		free(backup->s);
+		backup->s = 0;
+		backup->len = 0;
+	}
+	return (0);
+}
 
 char	*get_next_line(int fd)
 {

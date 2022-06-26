@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:17 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 03:08:41 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 16:59:30 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*get_next_line(int fd);
 char	*ft_strjoin(t_backup *backup, char *s2, size_t s2_size);
 int		check_new_line(t_backup *backup, char **line, int size);
 char	*free_backup(t_backup *backup, int fd);
+int		find_newline(char *s);
 
 #endif

@@ -6,21 +6,25 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:19 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/26 03:09:21 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 17:07:53 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*free_backup(t_backup *backup, int fd)
+int	find_newline(char *s)
 {
-	if ((fd >= 0 && fd < OPEN_MAX) && backup->s)
+	int	i;
+
+	i = 0;
+	while (*s != '\n')
 	{
-		free(backup->s);
-		backup->s = 0;
-		backup->len = 0;
+		if (*s == '\0')
+			return (-1);
+		i++;
+		s++;
 	}
-	return (0);
+	return (i + 1);
 }
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_len, size_t dstsize)
@@ -87,10 +91,14 @@ size_t	ft_strlcpy(t_backup *backup, const char *src, size_t dstsize)
 int	check_new_line(t_backup *backup, char **line, int size)
 {
 	int		i;
+	int		index;
 
 	if (line && *line)
 		free(*line);
 	if (!backup->s)
+		return (0);
+	index = find_newline(backup->s);
+	if (size != 0 && index == -1)
 		return (0);
 	*line = malloc(sizeof(char) * (backup->len + 1));
 	i = -1;

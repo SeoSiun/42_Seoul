@@ -6,7 +6,7 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 15:18:17 by siseo             #+#    #+#             */
-/*   Updated: 2022/06/25 23:56:51 by siseo            ###   ########.fr       */
+/*   Updated: 2022/06/26 17:08:40 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct s_backup
+{
+	char	*s;
+	size_t	len;
+}	t_backup;
+
 char	*get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2, size_t s2_size, size_t *b_len);
-int		check_new_line(char **backup, char **line, int size, size_t b_len);
-char	*free_backup(char **backup);
+char	*ft_strjoin(t_backup *backup, char *s2, size_t s2_size);
+int		check_new_line(t_backup *backup, char **line, int size);
+char	*free_backup(t_backup *backup, int fd);
 
 #endif
