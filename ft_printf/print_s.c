@@ -6,17 +6,19 @@
 /*   By: siseo <siseo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 15:32:26 by siseo             #+#    #+#             */
-/*   Updated: 2022/07/12 16:23:02 by siseo            ###   ########.fr       */
+/*   Updated: 2022/08/20 00:10:48 by siseo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	print_s(va_list ap)
+int	print_s(char type, va_list ap)
 {
 	char	*s;
 	int		len;
 
+	if (type != 's')
+		return (0);
 	s = va_arg(ap, char *);
 	if (!s)
 		s = "(null)";
